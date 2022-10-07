@@ -1,0 +1,55 @@
+<div class="border rounded p-2 bg-white">
+  <h2 class="capitalize font-bold">Card form</h2>
+
+  <form class="flex flex-col" ngForm="cardForm">
+    <div class="flex flex-col my-2">
+      <label for="cardno" class="text-end text-red-500 italic"
+        >Card Number</label
+      >
+      <input
+        type="text"
+        [maxLength]="16"
+        class="outline-none px-2 py-1 border rounded"
+        placeholder="Card Number"
+        name="cardno"
+        [(ngModel)]="cardNumber"
+        (ngModelChange)="updateForm()"
+      />
+    </div>
+
+    <div class="flex flex-col my-2">
+      <label for="cardholder" class="text-end text-red-500 italic"
+        >Card Holder</label
+      >
+      <input
+        type="text"
+        class="outline-none px-2 py-1 border rounded"
+        placeholder="Card Holder"
+        name="cardholder"
+        [(ngModel)]="cardHolder"
+        (ngModelChange)="updateForm()"
+      />
+    </div>
+
+    <div class="flex flex-col my-2">
+      <label for="expiry" class="text-end text-red-500 italic"
+        >Expiry Date</label
+      >
+      <input
+        type="date"
+        name="expiry"
+        class="outline-none px-2 py-1 border rounded"
+        [(ngModel)]="expiryDate"
+        (ngModelChange)="updateForm()"
+      />
+    </div>
+
+    <button
+      type="submit"
+      (click)="handleSubmit()"
+      class="px-5 py-2 bg-blue-600 rounded-lg text-white"
+    >
+      SUBMIT
+    </button>
+  </form>
+</div>

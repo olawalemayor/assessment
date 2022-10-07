@@ -1,0 +1,7 @@
+.body {
+  max-height: 100vh;
+  height: 100vh;
+  background: url("../../assets/backgrounds/abstract1.jpg");
+  background-size: cover;
+  overflow-y: scroll;
+}

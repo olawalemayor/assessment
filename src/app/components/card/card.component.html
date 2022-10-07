@@ -1,0 +1,96 @@
+<div class="border rounded p-2 bg-white">
+  <h2 class="capitalize font-bold">Debit Card form</h2>
+
+  <form class="flex flex-col">
+    <div class="flex flex-col my-2">
+      <div [ngSwitch]="cardNumber.value">
+        <div *ngSwitchCase="'5399'">
+          <img
+            src="../../../assets//logos/mastercard-logo.png"
+            class="w-[50px]"
+            alt=""
+          />
+        </div>
+        <div *ngSwitchCase="'4399'">
+          <img
+            src="../../../assets//logos/visa-logo.png"
+            class="w-[50px]"
+            alt=""
+          />
+        </div>
+        <div *ngSwitchCase="'3999'">
+          <img
+            src="../../../assets//logos/verve-logo.png"
+            class="w-[50px]"
+            alt=""
+          />
+        </div>
+        <div *ngSwitchDefault></div>
+      </div>
+
+      <label for="cardno" class="text-end text-red-500 italic"
+        >Card Number</label
+      >
+      <input
+        type="text"
+        [ngClass]="{
+          'border-red-400 border-2': cardNumber.invalid
+        }"
+        [maxlength]="16"
+        [minlength]="16"
+        class="outline-none px-2 py-1 border rounded"
+        placeholder="#### #### #### ####"
+        name="cardno"
+        [formControl]="cardNumber"
+      />
+    </div>
+
+    <div class="flex flex-col my-2">
+      <label for="cardholder" class="text-end text-red-500 italic"
+        >Card Holder</label
+      >
+      <input
+        type="text"
+        [ngClass]="{
+          'border-red-400 border-2': cardHolder.invalid
+        }"
+        class="outline-none px-2 py-1 border rounded"
+        placeholder="Card Holder"
+        name="cardholder"
+        [formControl]="cardHolder"
+      />
+    </div>
+
+    <div class="flex flex-col my-2">
+      <label for="expiry" class="text-end text-red-500 italic"
+        >Expiry Date</label
+      >
+      <input
+        type="date"
+        name="expiry"
+        [ngClass]="{
+          'border-red-400 border-2': expDate.invalid
+        }"
+        class="outline-none px-2 py-1 border rounded"
+        [formControl]="expDate"
+        placeholder="MM/YY"
+      />
+    </div>
+
+    <div class="flex flex-col my-2">
+      <label for="cvv" class="text-end text-red-500 italic">CVV</label>
+      <input
+        type="text"
+        maxlength="3"
+        minlength="3"
+        name="cvv"
+        [ngClass]="{
+          'border-red-400 border-2': cvv.dirty && cvv.invalid
+        }"
+        class="outline-none px-2 py-1 border rounded"
+        [formControl]="cvv"
+        placeholder="CVV"
+      />
+    </div>
+  </form>
+</div>
